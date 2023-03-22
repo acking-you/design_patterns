@@ -1,13 +1,13 @@
-cmake_minimum_required(VERSION 3.14)
-project(clion_pro_template)
-set(CMAKE_CXX_STANDARD 17)
+cmake_minimum_required(VERSION 3.14 )
+project(design_patterns)
+set(CMAKE_CXX_STANDARD 20)
 
 option(ENABLE_TEST "Build Test" ON)
 
-aux_source_directory(${PROJECT_SOURCE_DIR}/src SRC)
+file(GLOB_RECURSE SRC ${PROJECT_SOURCE_DIR}/src/*.h ${PROJECT_SOURCE_DIR}/src/*.cc)
 
 add_library(${PROJECT_NAME} ${SRC})
-target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/include)
+target_include_directories(${PROJECT_NAME} PUBLIC   src)
 
 if (ENABLE_TEST)
     add_subdirectory(tests)

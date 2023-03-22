@@ -1,0 +1,22 @@
+@startuml
+interface IClone<T>{
++clone():T
++deepClone():T
+}
+
+class Address{
+-addr_:string
+-zipCode_:int
+}
+
+class Customer{
+-name_:string
+-age_:int
+-addr_:AddressPtr
++clone():Customer
++deepClone():Customer
+}
+
+Customer..|>IClone
+Customer..*Address
+@enduml

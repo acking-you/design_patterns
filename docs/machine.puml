@@ -1,0 +1,53 @@
+@startuml
+interface FactoryMachine{
++createTelevision():TelevisionPtr
++createRefrigerator():Refrigerator
+}
+
+class HaierFactory{
++createTelevision():TelevisionPtr
++createRefrigerator():Refrigerator
+}
+
+class TCLFactory{
++createTelevision():TelevisionPtr
++createRefrigerator():Refrigerator
+}
+abstract ITelevision{
+   #brand_:string
+   +work()
+}
+abstract IRefrigerator{
+   #brand_:string
+   +work()
+}
+
+class TCLTelevision{
+   +work()
+}
+class TCLRefrigerator{
+   +work()
+}
+class HaierTelevision{
+   +work()
+}
+class HaierRefrigerator{
+   +work()
+}
+
+
+HaierFactory..|>FactoryMachine
+TCLFactory..|>FactoryMachine
+
+IRefrigerator ..> HaierFactory
+IRefrigerator ..> TCLFactory
+
+ITelevision ..> HaierFactory
+ITelevision ..> TCLFactory
+
+HaierRefrigerator ..|> IRefrigerator
+TCLRefrigerator ..|> IRefrigerator
+
+HaierTelevision ..|> ITelevision
+TCLTelevision ..|> ITelevision
+@enduml

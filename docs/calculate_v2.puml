@@ -1,0 +1,60 @@
+@startuml
+interface FactoryCalculate{
+    +create():CalculatePtr
+}
+
+abstract ICalculate{
+- a_
+- b_
++setA(a:float)
++setB(b:float)
++{abstract}~ICalcullate()
++{abstract}process()
+}
+
+class AddFactory{
++ create():CalculatePtr
+}
+class SubFactory{
++ create():CalculatePtr
+}
+class MulFactory{
++ create():CalculatePtr
+}
+class DivFactory{
++ create():CalculatePtr
+}
+class Add{
++process()
+}
+
+class Sub{
++process()
+}
+
+class Mul{
++process()
+}
+
+class Div{
++process()
+}
+
+AddFactory.|>FactoryCalculate
+SubFactory.|>FactoryCalculate
+MulFactory.|>FactoryCalculate
+DivFactory.|>FactoryCalculate
+
+Add..|>ICalculate
+Sub..|>ICalculate
+Mul..|>ICalculate
+Div..|>ICalculate
+
+AddFactory..>Add
+SubFactory..>Sub
+MulFactory..>Mul
+DivFactory..>Div
+
+
+
+@enduml

@@ -1,0 +1,41 @@
+@startuml
+
+class CalculateFactory{
++{static}GetInstance(op:string):unique_ptr<ICalcullate>
+}
+
+abstract ICalcullate{
+- a_
+- b_
++setA(a:float)
++setB(b:float)
++{abstract}~ICalcullate()
++{abstract}process()
+}
+
+class Add{
++process()
+}
+
+class Sub{
++process()
+}
+
+class Mul{
++process()
+}
+
+class Div{
++process()
+}
+
+Add..|>ICalcullate
+Sub..|>ICalcullate
+Mul..|>ICalcullate
+Div..|>ICalcullate
+
+CalculateFactory -o ICalcullate
+
+@enduml
+
+

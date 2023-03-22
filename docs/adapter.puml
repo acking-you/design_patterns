@@ -1,0 +1,23 @@
+@startuml
+interface DataOperation{
++ sort(list:vector<int>)
++ search(list:vector<int>,item:int):int
+}
+class Adapter{
+- sort_:QuickSort
+- search_:BinarySearch
++ sort(list:span<int>)
++ search(list:span<int>,item:int):int
+}
+class QuickSort{
++ sort(list:span<int>)
+}
+class BinarySearch{
++ search(list:span<int>,item:int):int
+}
+
+Adapter ..|> DataOperation
+QuickSort --* Adapter
+BinarySearch --* Adapter
+
+@enduml

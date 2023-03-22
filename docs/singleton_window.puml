@@ -1,0 +1,26 @@
+@startuml
+
+class Singleton<T>{
++{static}instance():T&
+}
+
+class QWidget
+class QMainWindow
+
+class SingletonWindow{
+-widget_:QWidget
++show()
+}
+
+class MainWindow{
+-window_:QMainWindow
++show()
+}
+
+MainWindow *-- QMainWindow
+SingletonWindow *-- QWidget
+
+MainWindow .> SingletonWindow
+MainWindow ..> Singleton
+
+@enduml

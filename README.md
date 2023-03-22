@@ -1,14 +1,12 @@
-# clion_pro_template
-这是一个使用CLion写C++项目的模板。
-默认是生成库文件，如果你的项目需要完整的可执行文件，那么可以自行改对应的 `add_library` 为 `add_executable` 即可。tests 目录中的 cmake 不需要更改，因为它不是基于库文件的。
+# C++设计模式
+一个用C++实现设计模式的实验作业.
 
-每个空文件夹都有个no_use文件，这个只是为了让git push的时候能创建这个文件夹，没有任何其他作用。
+共有以下三个实验:
+* [创建型模式](./src/lab1/README.md)
+* [结构型模式](./src/lab2/README.md)
 
-* `include` ：头文件目录
-* `src` ：源文件目录
-* `tests` ：测试文件目录
-* `.clang-format` ：本项目的代码格式化风格
-* `Doxyfile` ：通过doxygen生成文档的配置文件
-* `docs` ：通过doxygen生成文档的输出路径
-
-如果这个模板有用，请点一个🌟吧！
+各个文件目录说明如下:
+* `docs` ：所有的类图文件存放位置(使用 [plantuml](https://plantuml.com/zh/) 语法进行绘制).
+* `src` ：C++源代码实现一共有三个文件夹对应三个实验.
+* `tests` ：测试文件目录.
+* `.clang-format` ：本项目的代码格式化风格.
