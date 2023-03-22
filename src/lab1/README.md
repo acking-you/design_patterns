@@ -50,8 +50,11 @@
 
 ### 具体实现
 类图关系如下:
+
 ![img](../../docs/calculate_v2.png)
+
 具体的代码实现牵扯到如下文件:
+
 * [calculate.h](calculate.h)
 * [calculate_factory_v2.h](calculate_factory_v2.h)
 
