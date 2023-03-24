@@ -1,0 +1,31 @@
+@startuml
+
+
+class MainFrame{
+-memory:Memory
+-cpu:CPU
+-disk:HardDisk
+-os:OS
++on():bool
+}
+
+class Memory{
++check():bool
+}
+class CPU{
++run():bool
+}
+class HardDisk{
++read():bool
+}
+class OS{
++load():bool
+}
+
+
+MainFrame *--> Memory
+MainFrame *--> CPU
+MainFrame *--> HardDisk
+MainFrame *--> OS
+
+@enduml

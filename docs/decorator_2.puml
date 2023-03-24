@@ -1,0 +1,32 @@
+@startuml
+abstract Component{
+# widget_:QWidget*
++{abstract} show()
+}
+
+class ViewComponent{
++show()
+}
+
+ViewComponent ..|> Component
+
+abstract ComponentDecorator{
+# child_:Component
++child(child:Component*):ComponentDecorator*
+}
+
+ComponentDecorator -|> Component
+
+class ScrollBar{
++child(child:Component*):ComponentDecorator*
++show()
+}
+class Transparent{
++child(child:Component*):ComponentDecorator*
++show()
+}
+ScrollBar ..|> ComponentDecorator
+ScrollBar ..|> Component
+Transparent ..|> ComponentDecorator
+Transparent ..|> Component
+@enduml

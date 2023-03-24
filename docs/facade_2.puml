@@ -1,0 +1,28 @@
+@startuml
+
+class EncryptFile{
+-reader:ReadFile
+-saver:SaveFile
+-encrypt:Encrypt
++EncryptFile(srcPath:string,destPath:string)
++encrypt()
+}
+
+class ReadFile{
+-filename:string
++read():string
+}
+class SaveFile{
+-filename:string
++save(data:const std::string&)
+}
+class Encrypt{
+-data:string
++encrypt():string
+}
+
+EncryptFile *--> ReadFile
+EncryptFile *--> SaveFile
+EncryptFile *--> Encrypt
+
+@enduml

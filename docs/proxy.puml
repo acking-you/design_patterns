@@ -1,0 +1,54 @@
+@startuml
+class Order{
++productNum:int
++productName:string
++customerName:string
+}
+
+class User{
++username:string
++password:string
+}
+
+interface IUser{
++{abstract}queryByUsername(username:string):User
+}
+interface IOrderUpdate{
++{abstract}update(newOrder:Order)
+}
+interface IOrder{
++{abstract}queryByUsername(username:string):Order
+}
+
+IOrder -|> IOrderUpdate
+
+class OrderDAO{
++update(newOrder:Order)
++queryByUsername(username:string)
+}
+
+class UserDAO{
++queryByUsername(username:string):User
+}
+
+class UserVO{
++username:string
+}
+
+class OrderDAOProxy{
+-order_:IOrder
+-user_:UserVO
++OrderDAOProxy(user:UserVO)
++update(newOrder:Order)
+}
+
+OrderDAO ..|> IOrder
+OrderDAO ..> Order
+UserDAO ..|>IUser
+UserDAO ..> User
+
+OrderDAOProxy *-->  IOrder
+OrderDAOProxy ..|> IOrderUpdate
+OrderDAOProxy *-->  UserVO
+OrderDAOProxy ..> UserDAO
+@enduml

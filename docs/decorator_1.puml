@@ -1,0 +1,42 @@
+@startuml
+
+abstract Coffee{
+#price_:double
++{abstract}price():double
+}
+
+abstract CoffeeDecorator{
+#price_:double
+#coffee_:CoffeePtr
++{abstract}child(coffee:CoffeePtr):CoffeeDecorator
+}
+
+class Milk{
++price():double
++child(coffee:CoffeePtr):CoffeeDecorator
+}
+class Orange{
++price():double
++child(coffee:CoffeePtr):CoffeeDecorator
+}
+
+class BlueCoffee
+{
++price():double
+}
+
+class NatieCoffee{
++price():double
+}
+
+BlueCoffee --|> Coffee
+NatieCoffee --|> Coffee
+
+Coffee <|-- CoffeeDecorator
+CoffeeDecorator <|--  Milk
+CoffeeDecorator <|--  Orange
+
+
+
+
+@enduml

@@ -4,6 +4,7 @@
 共有以下三个实验:
 * [创建型模式](./src/lab1/README.md)
 * [结构型模式](./src/lab2/README.md)
+* [行为型模式](./src/lab3/README.md)
 
 各个文件目录说明如下:
 * `docs` ：所有的类图文件存放位置(使用 [plantuml](https://plantuml.com/zh/) 语法进行绘制).

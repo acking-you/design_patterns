@@ -1,0 +1,73 @@
+@startuml
+interface Factory{
++ create():Bird
+}
+
+class DoveFactory{
++ create():Bird
+}
+
+class EagleFactory{
++ create():Bird
+}
+
+class PenguinFactory{
++ create():Bird
+}
+
+interface Ability{
+    + work()
+}
+
+class CanFly{
++work()
+}
+class NotCanFly{
++work()
+}
+class NotCanSwim{
++work()
+}
+class CanSwim{
++work()
+}
+
+abstract Bird{
+# abilities:vector<Ability>
+# name:string
++ work()
+}
+
+class Dove{
++work()
+}
+
+class Eagle{
++work()
+}
+class Penguin{
++work()
+}
+
+
+DoveFactory .|> Factory
+EagleFactory .|> Factory
+PenguinFactory .|> Factory
+
+DoveFactory ..> Dove
+EagleFactory ..> Eagle
+PenguinFactory ..> Penguin
+
+Dove ..|> Bird
+Eagle ..|> Bird
+Penguin ..|> Bird
+
+CanFly ..|> Ability
+NotCanFly ..|> Ability
+CanSwim ..|> Ability
+NotCanSwim ..|> Ability
+
+
+
+Bird *-> Ability
+@enduml
