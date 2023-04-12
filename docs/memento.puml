@@ -1,0 +1,26 @@
+@startuml
+
+class User{
+-state :int
+-username: string
+-password: string
+-phone: string
++show()
++createMemento():Memento<User>
++restoreMemento(memo:Memento<User>)
+}
+
+class Memento<T>{
++state:int
++backup:unique_ptr<T>
+}
+
+class Caretaker<T>{
+-memoMap:map<int,Memento<T>>
++getMemo(state:int):optional<Memento<T>>
++setMemo(memo:Memento<T>)
+}
+
+User ..> Memento
+Caretaker ..>Memento
+@enduml

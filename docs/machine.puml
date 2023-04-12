@@ -35,7 +35,6 @@ class HaierRefrigerator{
    +work()
 }
 
-
 HaierFactory..|>FactoryMachine
 TCLFactory..|>FactoryMachine
 

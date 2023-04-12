@@ -17,7 +17,7 @@ class BinarySearch{
 }
 
 Adapter ..|> DataOperation
-Adapter *-> QuickSort
-Adapter *--> BinarySearch
+Adapter o-> QuickSort
+Adapter o--> BinarySearch
 
 @enduml

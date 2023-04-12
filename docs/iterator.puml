@@ -1,0 +1,53 @@
+@startuml
+interface Collection<T>{
++{abstract}add(item:T)
++{abstract}remove(index:int):bool
++{abstract}clear()
++{abstract}contains(item:T):bool
++{abstract}size():size_t
++{abstract}empty():bool
+}
+interface Iterator<T>{
++{abstract}moveNext():bool
++{abstract}next():T
++{abstract}remove()
+}
+
+interface Iterable<T>{
++{abstract}iterator():Iterator<T>
+}
+
+class List<T>{
+-items:vector<T>
++add(item:T)
++remove(index:int):bool
++clear()
++contains(item:T):bool
++size():size_t
++empty():bool
++iterator():Iterator<T>
+}
+
+class ListIterator<T>{
+-items:vector<T>&
+-iter:vector::iterator
++moveNext():bool
++next():T
++remove()
+}
+
+class Channel{
+-name:string
++show()
+}
+
+Collection ..|> List
+Iterable ..|> List
+
+ListIterator .|> Iterator
+
+List .> ListIterator
+
+Channel ..>List
+
+@enduml

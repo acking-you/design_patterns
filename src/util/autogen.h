@@ -300,15 +300,23 @@
       return *this;                                                            \
    }
 #define GETTER_FUNC(name, rename)                                              \
-   template <typename T>                                                       \
-   T get##rename() const                                                       \
-   {                                                                           \
-      return this->name;                                                       \
-   }
+   auto get##rename() const { return this->name; }
 
 #define AUTO_GEN_GETTER_SETTER(...)                                            \
    EJSON_EXPAND(EJSON_ARG2_PASTE(GETTER_FUNC, __VA_ARGS__))                    \
    EJSON_EXPAND(EJSON_ARG2_PASTE(SETTER_FUNC, __VA_ARGS__))
+
+#define AUTO_GEN_TYPE_UNIQUE_PTR(Type) using Ptr = std::unique_ptr<Type>;
+
+#define AUTO_GEN_TYPE_SHARED_PTR(Type) using Ptr = std::shared_ptr<Type>;
+
+#define AUTO_GEN_NEW_SHARED_PTR(Type)                                          \
+   AUTO_GEN_TYPE_SHARED_PTR(Type)                                              \
+   static Ptr New() { return std::make_shared<Type>(); }
+
+#define AUTO_GEN_NEW_UNIQUE_PTR(Type)                                          \
+   AUTO_GEN_TYPE_UNIQUE_PTR(Type)                                              \
+   static Ptr New() { return std::make_unique<Type>(); }
 
 //#define AUTO_GEN_GETTER_SETTER_CHAIN(...)                                      \
 //   EJSON_EXPAND(EJSON_ARG2_PASTE(GETTER_FUNC, __VA_ARGS__))                    \

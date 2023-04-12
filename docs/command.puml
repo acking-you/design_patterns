@@ -1,0 +1,47 @@
+@startuml
+
+class Invoker{
+-commands:map<string,CommandPtr>
++operator[](name:string)
++erase(name:string)
++execute(name:string)
+}
+
+abstract Receiver{
++{abstract}run()
+}
+
+abstract Command{
++receiver:ReceiverPtr
++{abstract}execute()
+}
+
+class CommandImpl<T>{
++execute()
++New():CommandPtr
+}
+
+class Create{
++run()
+}
+
+
+class Open{
++run()
+}
+
+
+class Save{
++run()
+}
+
+Open ..|> Receiver
+Create ..|> Receiver
+Save ..|> Receiver
+
+CommandImpl ..|> Command
+Receiver <.. CommandImpl
+
+Command <.. Invoker
+
+@enduml

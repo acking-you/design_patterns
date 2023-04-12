@@ -1,0 +1,27 @@
+@startuml
+class Context{
+#strategyMap:map<string,StrategyPtr>
++getStrategy(name:string):StrategyPtr
+}
+interface Strategy{
++{abstract}handle(money:double)
+}
+
+class ComputerBook{
++handle(money:double)
+}
+
+class LanguageBook{
++handle(money:double)
+}
+
+class NovelBook{
++handle(money:double)
+}
+
+ComputerBook ..|> Strategy
+LanguageBook ..|> Strategy
+NovelBook ..|> Strategy
+Context .> Strategy
+
+@enduml

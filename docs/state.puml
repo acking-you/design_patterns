@@ -1,0 +1,30 @@
+@startuml
+class Context{
+-state:State
++handle()
+}
+interface State{
++{abstract}handle(ctx:ContextPtr)
+}
+class Available{
+
++handle(ctx:ContextPtr)
+
+}
+class Booked{
+
++handle(ctx:ContextPtr)
+}
+
+class Occupied{
+
++handle(ctx:ContextPtr)
+}
+
+Booked ..|> State
+Occupied ..|> State
+Available ..|> State
+
+Context .> State
+
+@enduml

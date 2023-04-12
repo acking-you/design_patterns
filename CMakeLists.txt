@@ -29,6 +29,6 @@ add_library(${PROJECT_NAME} ${SRC})
 target_include_directories(${PROJECT_NAME} PUBLIC   src)
 target_link_libraries(${PROJECT_NAME} ejson fmt)
 
-if (ENABLE_TEST)
+if (ENABLE_${PROJECT_NAME}_TEST)
     add_subdirectory(tests)
 endif ()

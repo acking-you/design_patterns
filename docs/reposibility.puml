@@ -1,0 +1,24 @@
+@startuml
+
+abstract Handler{
+- next: HandlerPtr
++ setNext(l:HandlerPtr)
++ getNext():HandlerPtr
++ {abstract} handle(day:int)
+}
+
+class Director{
++ handle(day:int)
+}
+
+class Manager{
++ handle(day:int)
+}
+class GeneralManager{
++ handle(day:int)
+}
+
+Director ..|> Handler
+Manager ..|> Handler
+GeneralManager ..|> Handler
+@enduml

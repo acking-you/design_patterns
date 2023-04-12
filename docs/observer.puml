@@ -1,0 +1,31 @@
+@startuml
+interface Observer{
++{abstract}update(state:double)
+}
+
+abstract Subject{
+- observers:vector<Observer>
++ attach(observer:ObserverPtr)
++ detach(observer:ObserverPtr)
++ {abstract}notifyAll()
+}
+
+class Stock{
+-state:double
++setState(state:double)
++getState():double
++notifyAll()
+}
+
+class Stockholder{
+-price:double
++update(state:double)
++show()
+}
+
+Subject .> Observer
+Stock ..|> Subject
+Stockholder ..|> Observer
+
+
+@enduml
